@@ -81,6 +81,10 @@ const getFruit = () => {
 
 const incScore = () => {
   scoreSpan.innerHTML = +scoreSpan.innerHTML + 10
+  if (scoreSpan.innerHTML > bestScoreSpan.innerHtml) {
+    bestScoreSpan.innerHTML = scoreSpan.innerHTML
+    localStorage.setItem('scoreSnakeGame', bestScoreSpan.innerHTML)
+  }
 }
 
 const checkCollision = () => {
@@ -135,8 +139,10 @@ game()
 
 btnStart.addEventListener('click', () => {
   score.style.display = 'flex'
+  bestScore.style.display = 'flex'
   canvas.style.display = 'flex'
   startScreen.style.display = 'none'
+  bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame')
 });
 
 document.addEventListener('keydown', function ({key}){
@@ -154,6 +160,7 @@ btnHome.addEventListener('click', () => {
   restart()
   canvas.style.display = 'none'
   score.style.display = 'none'
+  bestScore.style.display = 'none'
   scoreFinal.style.display = 'none'
   startScreen.style.display = 'flex'
 });
