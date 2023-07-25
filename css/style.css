@@ -20,6 +20,10 @@ canvas {
   display: none;
   margin-bottom: 20px;
 }
+.bestScore {
+  display: none;
+  margin-bottom: 20px;
+}
 .gameOverScreen {
   position: absolute;
   display: none;
