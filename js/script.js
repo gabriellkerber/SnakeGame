@@ -126,7 +126,7 @@ const restart = () => {
   snakeHead = snake.at(-1)
   position = snakeHead
   canvas.style.filter = 'none'
-  gameButtons.style.display = 'flex'
+  verifyIfSmartphone()
 }
 
 const game = () => {
