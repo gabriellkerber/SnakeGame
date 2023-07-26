@@ -145,7 +145,7 @@ btnStart.addEventListener('click', () => {
   bestScore.style.display = 'flex'
   canvas.style.display = 'flex'
   startScreen.style.display = 'none'
-  bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame')
+  bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame') || '00'
 });
 
 document.addEventListener('keydown', function ({key}){
