@@ -109,6 +109,7 @@ const gameOver = () => {
   scoreFinal.innerHTML = scoreSpan.innerHTML
   gameOverScreen.style.display = 'flex'
   canvas.style.filter = 'blur(15px)'
+  gameButtons.style.display = 'none'
 }
 
 const checkDifficult = () => {
@@ -125,6 +126,7 @@ const restart = () => {
   snakeHead = snake.at(-1)
   position = snakeHead
   canvas.style.filter = 'none'
+  gameButtons.style.display = 'flex'
 }
 
 const game = () => {
@@ -178,6 +180,7 @@ btnHome.addEventListener('click', () => {
   canvas.style.display = 'none'
   score.style.display = 'none'
   bestScore.style.display = 'none'
+  gameButtons.style.display = 'none'
   scoreFinal.style.display = 'none'
   startScreen.style.display = 'flex'
 });
