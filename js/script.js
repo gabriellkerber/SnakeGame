@@ -18,6 +18,11 @@ const btnHard = document.querySelector('.btnHard')
 const hardDifficult = 100
 const mediumDifficult = 200
 const easyDifficult = 300
+const upBtn = document.querySelector('.fa-up-long')
+const downBtn = document.querySelector('.fa-down-long')
+const leftBtn = document.querySelector('.fa-left-long')
+const rightBtn = document.querySelector('.fa-right-long')
+const gameButtons = document.querySelector('.gameButtons')
 
 let snake = [
   {x: 300, y: 300}
@@ -132,10 +137,18 @@ const game = () => {
   addFruit(fruit.x, fruit.y)
   getFruit()
   checkDifficult()
-
+  
   idSetTimeout = setTimeout(() => {
     game()
   }, difficult);
+}
+
+const verifyIfSmartphone = () => {
+  if (WURFL.is_mobile === true && WURFL.form_factor === "Smartphone") {
+    canvas.style.width = '80vw'
+    canvas.style.height = '40vh'
+    gameButtons.style.display = 'flex'
+  }
 }
 
 game()
@@ -146,6 +159,7 @@ btnStart.addEventListener('click', () => {
   canvas.style.display = 'flex'
   startScreen.style.display = 'none'
   bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame') || '00'
+  verifyIfSmartphone()
 });
 
 document.addEventListener('keydown', function ({key}){
@@ -184,4 +198,17 @@ btnHard.addEventListener('click', () => {
   difficult = hardDifficult
   btnEasy.style.backgroundColor = 'white'
   btnMedium.style.backgroundColor = 'white'
+});
+
+upBtn.addEventListener('click', () => {
+  lastKey = 'up'
+});
+rightBtn.addEventListener('click', () => {
+  lastKey = 'right'
+});
+downBtn.addEventListener('click', () => {
+  lastKey = 'down'
+});
+leftBtn.addEventListener('click', () => {
+  lastKey = 'left'
 });
