@@ -81,9 +81,12 @@ const getFruit = () => {
 
 const incScore = () => {
   scoreSpan.innerHTML = +scoreSpan.innerHTML + 10
-  if (scoreSpan.innerHTML > bestScoreSpan.innerHtml) {
-    bestScoreSpan.innerHTML = scoreSpan.innerHTML
-    localStorage.setItem('scoreSnakeGame', bestScoreSpan.innerHTML)
+  const scoreSpanNumber = parseInt(scoreSpan.innerHTML)
+  const bestScoreSpanNumber = parseInt(bestScoreSpan.innerHTML)
+
+  if (scoreSpanNumber > bestScoreSpanNumber) {
+    bestScoreSpan.innerText = scoreSpan.innerText
+    localStorage.setItem('scoreSnakeGame', bestScoreSpan.innerText)
   }
 }
 
@@ -142,7 +145,7 @@ btnStart.addEventListener('click', () => {
   bestScore.style.display = 'flex'
   canvas.style.display = 'flex'
   startScreen.style.display = 'none'
-  bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame') || '00'
+  bestScoreSpan.innerHTML = localStorage.getItem('scoreSnakeGame')
 });
 
 document.addEventListener('keydown', function ({key}){
